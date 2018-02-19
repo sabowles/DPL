@@ -1,0 +1,27 @@
+def testFunction(m, n)
+{
+	if(m ? 0)
+	{
+		call #(t){n + t}(2)
+	}
+	else
+	{
+		if(m > 0)
+		{
+			#(t){n + t}
+		}
+		else
+		{
+			call passFunction(#(t){n + t})
+		}
+	}
+}
+
+def passFunction(m)
+{
+	call m(5)
+}
+
+call println(call testFunction(0, 1))
+call println(call call testFunction(1, 2) (4))
+call println(call testFunction(-1, 4))

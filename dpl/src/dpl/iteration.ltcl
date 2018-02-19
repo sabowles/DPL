@@ -1,0 +1,16 @@
+def fib(n)
+{
+	var x = 0
+	var y = 1
+	var z = 1
+	var i = 0
+	while(i < n)
+	{
+		x = y
+		y = z
+		z = z + y
+		i = i + 1
+	}
+	x
+}
+call println(call fib(15))

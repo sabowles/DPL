@@ -1,0 +1,16 @@
+def fib(n)
+{
+	if(n ? 0){
+		0
+	}
+	else{
+		if(n ? 1){
+			1
+		}
+		else{
+			call fib(n - 1) + call fib(n - 2)
+		}
+	}
+}
+
+call println(call fib(15))

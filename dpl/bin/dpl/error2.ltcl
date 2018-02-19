@@ -1,0 +1,64 @@
+def simpleCond(n)
+{
+	if(n ? 0)
+	{
+		10
+	}
+	else
+	{
+		12
+	}
+}
+
+def nestedCond(n)
+{
+	if(n > 0)
+	{
+		n
+	}
+	else
+	{
+		if(n < 0)
+		{
+			n - 1
+		}
+		else
+		{
+			0
+		}
+	}
+}
+
+def orTest(n)
+{
+	if(n < 5 ; n > 10)
+	{
+		n
+	}
+	else
+	{
+		"Else"
+	}
+}
+
+def andTest(n)
+{
+	if(n > 0 & n < 10)
+	{
+		n
+	}
+	else
+	{
+		"else
+	}
+}
+
+call println(call simpleCond(0))
+call println(call simpleCond(1))
+call println(call nestedCond(-1))
+call println(call nestedCond(0))
+call println(call orTest(1))
+call println(call orTest(11))
+call println(call orTest(6))
+call println(call andTest(5))
+call println(call andTest(11))

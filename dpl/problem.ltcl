@@ -1,0 +1,82 @@
+def strcar(str)
+{
+	call arrayLookup(str, 0)
+}
+
+def strcdr(str)
+{
+	call call arrayLookup(str, 1) ()
+}
+
+def strcons(car, cdr)
+{
+	var a = call createArray(2)
+	call arrayInsert(a, 0, car)
+	call arrayInsert(a, 1, cdr)
+	a
+}
+def indivisible(a, b)
+{
+	if(0 < a % b)
+	{
+		1 > 0 ::Testing comments
+	}
+	else
+	{
+		if(0 > a % b)
+		{
+			1 > 0
+		}
+		else
+		{
+			1 > 2
+		}
+	}
+}
+
+def strfilter(pred, str)
+{
+	if(call pred(call strcar(str)))
+	{
+		call strcons(call strcar(str), #(){call strfilter(pred, call strcdr(str))})
+	}
+	else
+	{
+		call strfilter(pred, call strcdr(str))
+	}
+}
+
+def sieve(str)
+{
+	call strcons(call strcar(str), #(){call sieve(call strfilter(#(x){call indivisible(x, call strcar(str))}, call strcdr(str)))})
+}
+
+def intFromN(n)
+{
+	call strcons(n, #(){call intFromN(n + 1)})
+}
+
+def strref(str, n)
+{
+	if(n ? 0)
+	{
+		call strcar(str)
+	}
+	else
+	{
+		call strref(call strcdr(str), n - 1)
+	}
+}
+
+def main()
+{
+	var primes = call sieve(call intFromN(2))
+	var i = 0
+	while(i < 51)
+	{
+		call println(call strref(primes, i))
+		i = i + 1
+	}
+}
+
+call main() 

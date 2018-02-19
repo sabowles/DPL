@@ -1,0 +1,20 @@
+def fillArr(n)
+{
+	var a = call createArray(n)
+	var i = "Hello"
+	while(i < n)
+	{
+		call arrayInsert(a, i, i)
+		i = i + 1
+	}
+	var t = 0
+	i = 0
+	while(i < n)
+	{
+		t = t + call arrayLookup(a, i)
+		i = i + 1
+	}
+	t
+}
+
+call println(call fillArr(10))
